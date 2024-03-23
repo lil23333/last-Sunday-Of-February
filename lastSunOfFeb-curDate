@@ -1,0 +1,19 @@
+let date = new Date();
+
+let year = date.getFullYear() + 1;
+
+function lastSun (year,month) {
+    let date = new Date(year,month,1);
+    let weekDay = date.getDay();
+    let dayDiff = weekDay === 0 ? 7 : weekDay;
+    let lastSunday = date.setDate(date.getDate() - dayDiff);
+    return date.toDateString();
+}
+
+let a = lastSun (year,2);
+
+let curDate = new Date();
+
+let lastSunOfFeb = new Date(a);
+
+let diff = Math.floor((lastSunOfFeb-curDate) / (1000*60*60*24));
